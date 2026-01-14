@@ -1,3 +1,10 @@
+
+---
+title: Function Index
+permalink: /function-index/
+---
+
+
 # Function Index - SousLeSens Vocables (Frontend)
 
 ## Purpose

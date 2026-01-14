@@ -10,6 +10,7 @@ This website contains the authoritative development guidelines for SousLeSensVoc
 
 
 ## Documents
+- [Quick Rules](quick-rules.md)
 - [Claude Guidelines](claude.md)
 - [Coding Standards](coding-standards.md)
 - [Function Index](function-index.md)

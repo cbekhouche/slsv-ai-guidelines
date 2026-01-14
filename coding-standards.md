@@ -1,3 +1,10 @@
+
+---
+title: Coding Standards
+permalink: /coding-standards/
+---
+
+
 # Coding Standards - Quick Reference
 
 This document consolidates coding standards from `refactoring-guidelines.md` and observed patterns in the codebase.

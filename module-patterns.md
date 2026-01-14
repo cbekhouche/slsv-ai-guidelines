@@ -1,3 +1,10 @@
+
+---
+title: Module Patterns
+permalink: /module-patterns/
+---
+
+
 # Module Patterns - Real Examples from Codebase
 
 This document provides **real, working patterns** extracted from the SousLeSens Vocables codebase.

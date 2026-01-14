@@ -1,3 +1,11 @@
+
+---
+title: Claude Guidelines
+permalink: /claude/
+---
+
+
+
 # SousLeSens Vocables - Claude Code Guidelines
 
 

@@ -18,3 +18,26 @@ These rules are authoritative for AI assistants working on SousLeSensVocables.
 - Do not invent file names or paths.
 - Do not put `export default` inside an IIFE.
 - Do not suggest GitHub write operations (push/PR) unless explicitly requested.
+
+
+## Correct module template (copy/paste)
+
+```javascript
+var MyModule = (function () {
+  var self = {};
+
+  self.init = function (options, callback) {
+    async.series([
+      function stepOne(cb) { cb(null); },
+      function stepTwo(cb) { cb(null); }
+    ], function (err) {
+      if (err) return callback(err);
+      callback(null);
+    });
+  };
+
+  return self;
+})();
+
+export default MyModule;
+window.MyModule = MyModule;

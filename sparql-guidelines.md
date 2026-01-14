@@ -1,3 +1,10 @@
+
+---
+title: SPARQL Guidelines
+permalink: /sparql-guidelines/
+---
+
+
 # SPARQL Guidelines
 
 Quick reference for executing SPARQL queries in SousLeSens Vocables.

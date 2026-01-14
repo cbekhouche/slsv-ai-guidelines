@@ -1,3 +1,10 @@
+
+---
+title: Refactoring Guidelines
+permalink: /refactoring-guidelines/
+---
+
+
 # SousLeSens Vocables - Refactoring Guidelines
 
 ## DRY Principle - MANDATORY WORKFLOW

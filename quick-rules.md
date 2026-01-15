@@ -20,24 +20,23 @@ These rules are authoritative for AI assistants working on SousLeSensVocables.
 - Do not suggest GitHub write operations (push/PR) unless explicitly requested.
 
 
-## Correct module template (copy/paste)
 
+
+## Correct templates (copy/paste)
+
+### 1) Correct module template (scope-safe)
 ```javascript
-var MyModule = (function () {
+// Scope-safe module skeleton following project standards
+var ModuleName = (function () {
   var self = {};
 
   self.init = function (options, callback) {
-    async.series([
-      function stepOne(cb) { cb(null); },
-      function stepTwo(cb) { cb(null); }
-    ], function (err) {
-      if (err) return callback(err);
-      callback(null);
-    });
+    callback();
   };
 
   return self;
 })();
 
-export default MyModule;
-window.MyModule = MyModule;
+// Export MUST be outside the IIFE
+export default ModuleName;
+window.ModuleName = ModuleName;

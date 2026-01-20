@@ -744,6 +744,28 @@ common.fillSelectOptions("mySelect", [{id: "1", label: "Option 1"}], true, "labe
 
 ---
 
+# UI Widgets
+
+## LegendOverlayWidget (`public/vocables/modules/uiWidgets/legendOverlayWidget.js`)
+
+### LegendOverlayWidget.render
+**Signature:** `render(containerId, options)`
+**Description:** Render a DOM-based legend overlay inside a container with an internal toggle.
+
+### LegendOverlayWidget.update
+**Signature:** `update(containerId, state)`
+**Description:** Update legend visibility based on detected node/edge categories and optional variant state (e.g., `tableColors`).
+
+### LegendOverlayWidget.setVisible
+**Signature:** `setVisible(containerId, visible)`
+**Description:** Show or hide the legend wrapper for a given container.
+
+### LegendOverlayWidget.destroy
+**Signature:** `destroy(containerId)`
+**Description:** Remove the legend instance from the DOM and clear internal state.
+
+---
+
 # Color Palettes (common module)
 
 ### common.palette

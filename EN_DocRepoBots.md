@@ -34,52 +34,52 @@ The underlying engine provides reusable UI primitives (list selection, value pro
 
 ### Engine (core workflow runner)
 
-- **BotEngineClass** (`_botEngineClass.js`) — Core UI workflow runner: loads the bot UI template, executes workflow steps, supports branching (`_OR`), and maintains navigation history (previous/reset).
+1. **BotEngineClass** (`_botEngineClass.js`) — Core UI workflow runner: loads the bot UI template, executes workflow steps, supports branching (`_OR`), and maintains navigation history (previous/reset).
 
 ### Shared utilities & workflow helpers
 
-- **CommonBotFunctions** (`_commonBotFunctions.js`) — Shared helpers: load ontology models for a source and its imports, and produce sorted lists of vocabularies, classes, properties, and non-object properties for bot UI selection.
-- **NonObjectPropertyFilterWorklow** (`_nonObjectPropertyFilterWorklow.js`) — Helper workflow to build datatype/non-object property SPARQL filter fragments by selecting property/operator/value and chaining conditions with AND/OR/end.
+2. **CommonBotFunctions** (`_commonBotFunctions.js`) — Shared helpers: load ontology models for a source and its imports, and produce sorted lists of vocabularies, classes, properties, and non-object properties for bot UI selection.
+3. **NonObjectPropertyFilterWorklow** (`_nonObjectPropertyFilterWorklow.js`) — Helper workflow to build datatype/non-object property SPARQL filter fragments by selecting property/operator/value and chaining conditions with AND/OR/end.
 
 ### Resource creation & OWL modeling
 
-- **CreateResource_bot** (`createResource_bot.js`) — Generic resource creation (Class, Individual, DatatypeProperty) with optional post-actions (edit or draw in lineage whiteboard).
-- **CreateAxiomResource_bot** (`createAxiomResource_bot.js`) — Focused creation for axiom resources: creates `owl:Class` (optional `subClassOf`) and sub-properties, returning a normalized `params.newObject`.
-- **CreateRestriction_bot** (`createRestriction_bot.js`) — Creates OWL restrictions: writes cardinality restrictions as blank nodes and delegates value restriction creation to a lineage edge dialog.
+4. **CreateResource_bot** (`createResource_bot.js`) — Generic resource creation (Class, Individual, DatatypeProperty) with optional post-actions (edit or draw in lineage whiteboard).
+5. **CreateAxiomResource_bot** (`createAxiomResource_bot.js`) — Focused creation for axiom resources: creates `owl:Class` (optional `subClassOf`) and sub-properties, returning a normalized `params.newObject`.
+6. **CreateRestriction_bot** (`createRestriction_bot.js`) — Creates OWL restrictions: writes cardinality restrictions as blank nodes and delegates value restriction creation to a lineage edge dialog.
 
 ### Source onboarding
 
-- **CreateSLSVsource_bot** (`createSLSVsource_bot.js`) — “OntoCreator” bot to create a new source, optionally upload a graph (file/URL), add ontology metadata (creator/description), and redirect to tools (Lineage/MappingModeler).
+7. **CreateSLSVsource_bot** (`createSLSVsource_bot.js`) — “OntoCreator” bot to create a new source, optionally upload a graph (file/URL), add ontology metadata (creator/description), and redirect to tools (Lineage/MappingModeler).
 
 ### Graph exploration & navigation (Lineage / Whiteboard)
 
-- **GraphPaths_bot** (`graphPaths_bot.js`) — Graph exploration: computes and draws paths from/to/between nodes with output as text/CSV or graph highlighting.
-- **NodeRelations_bot** (`nodeRelations_bot.js`) — Interactive “query graph” assistant from the lineage whiteboard current node: explores object properties, annotation/datatype properties (including value filtering), restrictions (including inverse restrictions), container membership, and additional lineage utilities (e.g., similars dialog, traversal visualizations).
-- **Similars_bot** (`similars_bot.js`) — Interactive assistant to search “similar” nodes either in the whiteboard selection or in a source, with exact/fuzzy matching, optional result filtering (by parent), and multiple output options (graph/table/save).
+8. **GraphPaths_bot** (`graphPaths_bot.js`) — Graph exploration: computes and draws paths from/to/between nodes with output as text/CSV or graph highlighting.
+9. **NodeRelations_bot** (`nodeRelations_bot.js`) — Interactive “query graph” assistant from the lineage whiteboard current node: explores object properties, annotation/datatype properties (including value filtering), restrictions (including inverse restrictions), container membership, and additional lineage utilities (e.g., similars dialog, traversal visualizations).
+10. **Similars_bot** (`similars_bot.js`) — Interactive assistant to search “similar” nodes either in the whiteboard selection or in a source, with exact/fuzzy matching, optional result filtering (by parent), and multiple output options (graph/table/save).
 
 ### KGcreator mapping assistance
 
-- **KGcreator_bot** (`KGcreator_bot.js`) — Mapping assistant in KGcreator context: helps define mapping triple models (URI typing, `rdf:type`, predicates, non-object properties, joins) and persists mapping config.
+11. **KGcreator_bot** (`KGcreator_bot.js`) — Mapping assistant in KGcreator context: helps define mapping triple models (URI typing, `rdf:type`, predicates, non-object properties, joins) and persists mapping config.
 
 ### KGQuery assistants
 
-- **KGquery_annotations_bot** (`KGquery_annotations_bot.js`) — Assistant to configure SPARQL query selection (select variables) and filters by reusing `SparqlQuery_bot.functions`, then returns `filter` and `filterLabel` via the validator callback.
-- **KGquery_filter_bot** (`KGquery_filter_bot.js`) — Interactive filter builder: selects a (non-object) property, operator, and value (including date range), then builds a SPARQL `FILTER(...)` clause with optional logical chaining.
-- **KGquery_composite_graph_bot** (`KGquery_composite_graph_bot.js`) — “HyperGraphMaker” bot: imports KGquery graphs from a source and its imports, downloads/regenerates graphs, colors imported graphs, merges them, and optionally joins graphs by selecting a common class.
-- **SparqlQuery_bot** (`sparqlQuery_bot.js`) — Interactive SPARQL query assistant for querying graphs and displaying results as a new graph, adding to the current graph, exporting as table/CSV, or editing/executing raw SPARQL (including saved queries and “last query” recall).
+12. **KGquery_annotations_bot** (`KGquery_annotations_bot.js`) — Assistant to configure SPARQL query selection (select variables) and filters by reusing `SparqlQuery_bot.functions`, then returns `filter` and `filterLabel` via the validator callback.
+13. **KGquery_filter_bot** (`KGquery_filter_bot.js`) — Interactive filter builder: selects a (non-object) property, operator, and value (including date range), then builds a SPARQL `FILTER(...)` clause with optional logical chaining.
+14. **KGquery_composite_graph_bot** (`KGquery_composite_graph_bot.js`) — “HyperGraphMaker” bot: imports KGquery graphs from a source and its imports, downloads/regenerates graphs, colors imported graphs, merges them, and optionally joins graphs by selecting a common class.
+15. **SparqlQuery_bot** (`sparqlQuery_bot.js`) — Interactive SPARQL query assistant for querying graphs and displaying results as a new graph, adding to the current graph, exporting as table/CSV, or editing/executing raw SPARQL (including saved queries and “last query” recall).
 
 ### MappingModeler helpers (technical mappings / lookups / extra predicates)
 
-- **MappingModeler_bot** (`mappingModeler_bot.js`) — Mapping Modeler assistant to apply technical mapping actions such as adding predicates (including non-object properties), adding `rdf:type`, adding `rdfs:subClassOf`, adding transformations, and creating datatype properties via `CreateResource_bot`.
-- **Lookups_bot** (`mappingModeler_lookups_bot.js`) — Wizard to create and save “lookup” configurations: selects datasource/table/columns/target mapping, writes lookup into config, then saves the visjs mapping graph.
+16. **MappingModeler_bot** (`mappingModeler_bot.js`) — Mapping Modeler assistant to apply technical mapping actions such as adding predicates (including non-object properties), adding `rdf:type`, adding `rdfs:subClassOf`, adding transformations, and creating datatype properties via `CreateResource_bot`.
+17. **Lookups_bot** (`mappingModeler_lookups_bot.js`) — Wizard to create and save “lookup” configurations: selects datasource/table/columns/target mapping, writes lookup into config, then saves the visjs mapping graph.
 
 ### User data & sharing
 
-- **ShareUserData_bot** (`shareUserData_bot.js`) — Assistant to share a UserData item with profiles and/or users, list current sharing, and remove shared profiles/users; persists updates by patching and saving UserData metadata.
+18. **ShareUserData_bot** (`shareUserData_bot.js`) — Assistant to share a UserData item with profiles and/or users, list current sharing, and remove shared profiles/users; persists updates by patching and saving UserData metadata.
 
 ### UI widgets used by bots
 
-- **ManchesterSyntaxWidget** (`manchesterSyntaxWidget.js`) — Token-based input widget that suggests ontology classes/properties (from source + imports + basic vocabularies) and builds a Manchester-like expression from validated tokens.
+19. **ManchesterSyntaxWidget** (`manchesterSyntaxWidget.js`) — Token-based input widget that suggests ontology classes/properties (from source + imports + basic vocabularies) and builds a Manchester-like expression from validated tokens.
 
 ---
 
@@ -98,8 +98,8 @@ The underlying engine provides reusable UI primitives (list selection, value pro
 
 ## Usage
 
-1. Choose the appropriate bot module and call its `start(...)` entry point (signatures vary: some bots instantiate `BotEngineClass` locally, some reuse a shared/global engine).
-2. Define or reuse a workflow object to represent the step chain and branching logic (`_OR`, `_DEFAULT`).
-3. Implement workflow steps inside the bot’s `functions` map and provide user-facing titles via `functionTitles` for consistent prompts.
-4. Use shared utilities (`CommonBotFunctions`) to load ontology models and list selectable items consistently; use specialized workflow helpers (e.g., `NonObjectPropertyFilterWorklow`) to generate consistent filter fragments.
-5. Persist results via SPARQL/Lineage/MappingModeler/UserData services (triples insertion, metadata updates, mapping graph saving), and depending on the bot, outputs are returned via a validator/callback, stored in `params` (e.g., `params.newObject`), and/or produced as UI side-effects (dialogs, graph rendering, or saved configurations).
+- Choose the appropriate bot module and call its `start(...)` entry point (signatures vary: some bots instantiate `BotEngineClass` locally, some reuse a shared/global engine).
+- Define or reuse a workflow object to represent the step chain and branching logic (`_OR`, `_DEFAULT`).
+- Implement workflow steps inside the bot’s `functions` map and provide user-facing titles via `functionTitles` for consistent prompts.
+- Use shared utilities (`CommonBotFunctions`) to load ontology models and list selectable items consistently; use specialized workflow helpers (e.g., `NonObjectPropertyFilterWorklow`) to generate consistent filter fragments.
+- Persist results via SPARQL/Lineage/MappingModeler/UserData services (triples insertion, metadata updates, mapping graph saving), and depending on the bot, outputs are returned via a validator/callback, stored in `params` (e.g., `params.newObject`), and/or produced as UI side-effects (dialogs, graph rendering, or saved configurations).
